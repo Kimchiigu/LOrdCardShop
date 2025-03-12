@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <title>LOrdCardShop - Login</title>
+    <title>LOrdCardShop | Login</title>
     <script>
         tailwind.config = {
             theme: {

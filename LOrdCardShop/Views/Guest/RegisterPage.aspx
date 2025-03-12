@@ -4,23 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link href="~/Style/output.css" rel="stylesheet"/>
     <title>LOrdCardShop | Register</title>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#3b82f6',
-                        secondary: '#10b981',
-                        accent: '#8b5cf6',
-                        background: '#f9fafb',
-                        card: '#ffffff'
-                    }
-                }
-            }
-        }
-    </script>
 </head>
 <body class="from-blue-50 to-indigo-100 p-4 flex min-h-screen items-center justify-center bg-gradient-to-br">
     <div class="w-full max-w-md">

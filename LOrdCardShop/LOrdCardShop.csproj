@@ -43,7 +43,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -67,6 +75,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\LordCardShopDatabase.mdf" />
+    <Content Include="App_Data\LordCardShopDatabase_log.ldf">
+      <DependentUpon>LordCardShopDatabase.mdf</DependentUpon>
+    </Content>
+    <Content Include="Model\LordCardShopModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LordCardShopModel.Context.cs</LastGenOutput>
+      <DependentUpon>LordCardShopModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model\LordCardShopModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LordCardShopModel.edmx</DependentUpon>
+      <LastGenOutput>LordCardShopModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Style\output.css" />
     <Content Include="Style\styles.css" />
     <Content Include="Views\Guest\RegisterPage.aspx" />
@@ -74,7 +96,39 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\DatabaseSingleton.cs" />
+    <Compile Include="Model\Card.cs">
+      <DependentUpon>LordCardShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Cart.cs">
+      <DependentUpon>LordCardShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LordCardShopModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LordCardShopModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LordCardShopModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LordCardShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\LordCardShopModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LordCardShopModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TransactionDetail.cs">
+      <DependentUpon>LordCardShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TransactionHeader.cs">
+      <DependentUpon>LordCardShopModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\User.cs">
+      <DependentUpon>LordCardShopModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\UsersRepository.cs" />
     <Compile Include="Views\Guest\RegisterPage.aspx.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -92,6 +146,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="libman.json" />
+    <EntityDeploy Include="Model\LordCardShopModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LordCardShopModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model\LordCardShopModel.edmx.diagram">
+      <DependentUpon>LordCardShopModel.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -102,9 +163,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Factories\" />
     <Folder Include="Handlers\" />
-    <Folder Include="Model\" />
-    <Folder Include="Repositories\" />
+    <Folder Include="Views\Admin\" />
+    <Folder Include="Views\Customer\" />
+    <Folder Include="Views\Masters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

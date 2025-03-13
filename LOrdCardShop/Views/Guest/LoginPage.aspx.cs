@@ -17,8 +17,6 @@ namespace LOrdCardShop.Views
                 Response.Redirect("~/Views/HomePage.aspx");
                 return;
             }
-
-            Lbl_Error.ForeColor = System.Drawing.Color.Red;
         }
 
         protected void Btn_Login_Click(object sender, EventArgs e)

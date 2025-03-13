@@ -17,19 +17,19 @@
             
             <form id="form1" runat="server" class="p-6 space-y-6">
                 <div class="space-y-2">
-                    <asp:Label ID="Lbl_Username" runat="server" Text="Username" CssClass="text-gray-700 block text-sm font-medium"></asp:Label>
-                    <asp:TextBox ID="TB_Username" runat="server" CssClass="px-4 py-2 border-gray-300 w-full rounded-lg border transition-colors focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your username"></asp:TextBox>
+                    <asp:Label ID="Lbl_Login_Username" runat="server" Text="Username" CssClass="text-gray-700 block text-sm font-medium"></asp:Label>
+                    <asp:TextBox ID="TB_Login_Username" runat="server" CssClass="px-4 py-2 border-gray-300 w-full rounded-lg border transition-colors focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your username"></asp:TextBox>
                 </div>
                 <div class="space-y-2">
-                    <asp:Label ID="Lbl_Password" runat="server" Text="Password" CssClass="text-gray-700 block text-sm font-medium"></asp:Label>
-                    <asp:TextBox ID="TB_Password" runat="server" TextMode="Password" CssClass="px-4 py-2 border-gray-300 w-full rounded-lg border transition-colors focus:ring-2 focus:ring-blue-500 focus:border-blue-500"  placeholder="Enter your password"></asp:TextBox>
+                    <asp:Label ID="Lbl_Login_Password" runat="server" Text="Password" CssClass="text-gray-700 block text-sm font-medium"></asp:Label>
+                    <asp:TextBox ID="TB_Login_Password" runat="server" TextMode="Password" CssClass="px-4 py-2 border-gray-300 w-full rounded-lg border transition-colors focus:ring-2 focus:ring-blue-500 focus:border-blue-500"  placeholder="Enter your password"></asp:TextBox>
                 </div>
                 <div class="flex items-center">
                     <asp:CheckBox ID="CB_RememberMe" runat="server" CssClass="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"/>
                     <asp:Label ID="Lbl_RememberMe" runat="server" Text="Remember Me" CssClass="ml-2 text-gray-700 block text-sm"></asp:Label>
                 </div>
                 <div>
-                    <asp:Button ID="Btn_Login" runat="server" Text="Login" CssClass="from-blue-600 to-indigo-600 text-white py-2 px-4 w-full rounded-lg bg-gradient-to-r font-medium transition-colors hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" />
+                    <asp:Button ID="Btn_Login" runat="server" OnClick="Btn_Login_Click" Text="Login" CssClass="from-blue-600 to-indigo-600 text-white py-2 px-4 w-full rounded-lg bg-gradient-to-r font-medium transition-colors hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" />
                 </div>
                 <div class="text-gray-600 text-center text-sm">
                     Don't have an account? 

@@ -96,7 +96,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Database\DatabaseSingleton.cs" />
+    <Compile Include="Factories\UsersFactory.cs" />
+    <Compile Include="Handlers\UsersHandler.cs" />
     <Compile Include="Model\Card.cs">
       <DependentUpon>LordCardShopModel.tt</DependentUpon>
     </Compile>
@@ -162,9 +165,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Factories\" />
-    <Folder Include="Handlers\" />
     <Folder Include="Views\Admin\" />
     <Folder Include="Views\Customer\" />
     <Folder Include="Views\Masters\" />

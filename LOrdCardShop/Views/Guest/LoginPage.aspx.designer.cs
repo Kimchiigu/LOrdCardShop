@@ -24,40 +24,40 @@ namespace LOrdCardShop.Views
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Lbl_Username control.
+        /// Lbl_Login_Username control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_Username;
+        protected global::System.Web.UI.WebControls.Label Lbl_Login_Username;
 
         /// <summary>
-        /// TB_Username control.
+        /// TB_Login_Username control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TB_Username;
+        protected global::System.Web.UI.WebControls.TextBox TB_Login_Username;
 
         /// <summary>
-        /// Lbl_Password control.
+        /// Lbl_Login_Password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Lbl_Password;
+        protected global::System.Web.UI.WebControls.Label Lbl_Login_Password;
 
         /// <summary>
-        /// TB_Password control.
+        /// TB_Login_Password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TB_Password;
+        protected global::System.Web.UI.WebControls.TextBox TB_Login_Password;
 
         /// <summary>
         /// CB_RememberMe control.

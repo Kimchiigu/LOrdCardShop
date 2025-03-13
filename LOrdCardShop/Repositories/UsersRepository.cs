@@ -1,4 +1,5 @@
 ﻿using LOrdCardShop.Database;
+using LOrdCardShop.Factories;
 using LOrdCardShop.Model;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,13 @@ namespace LOrdCardShop.Repositories
         public static User GetUserByID(int id)
         {
             return db.Users.Find(id);
+        }
+
+        public static void AddUser(string username, string email, string password, string gender, string dob)
+        {
+            User user = UsersFactory.CreateUser(username, email, password, gender, dob);
+            db.Users.Add(user);
+            db.SaveChanges();
         }
     }
 }

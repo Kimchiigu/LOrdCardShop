@@ -91,6 +91,7 @@
     </Content>
     <Content Include="Style\output.css" />
     <Content Include="Style\styles.css" />
+    <Content Include="Views\Admin\AddCardPage.aspx" />
     <Content Include="Views\Guest\RegisterPage.aspx" />
     <Content Include="Views\Guest\LoginPage.aspx" />
     <Content Include="Web.config" />
@@ -132,6 +133,13 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\UsersRepository.cs" />
+    <Compile Include="Views\Admin\AddCardPage.aspx.cs">
+      <DependentUpon>AddCardPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\AddCardPage.aspx.designer.cs">
+      <DependentUpon>AddCardPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Guest\RegisterPage.aspx.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -165,7 +173,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\Admin\" />
     <Folder Include="Views\Customer\" />
     <Folder Include="Views\Masters\" />
   </ItemGroup>
@@ -187,7 +194,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>59568</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44349/</IISUrl>
+          <IISUrl>http://localhost:44349/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

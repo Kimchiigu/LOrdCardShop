@@ -28,5 +28,25 @@ namespace LOrdCardShop.Repositories
             db.Users.Add(user);
             db.SaveChanges();
         }
+
+        public static List<Card> GetFeaturedCards()
+        {
+            //Fetch database buat ngambil 6 kartu (randomize)
+        }
+
+        public static Cart GetCartItem(int userId, int cardId)
+        {
+            //Dari function AddToCart
+        }
+
+        internal static void UpdateCart(Cart existingCart)
+        {
+            //Dari function AddToCart
+        }
+
+        internal static void InsertCart(Cart newCart)
+        {
+            //Dari function AddToCart
+        }
     }
 }

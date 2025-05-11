@@ -1,5 +1,7 @@
 ﻿using LOrdCardShop.Handlers;
+using LOrdCardShop.Model;
 using System;
+using System.Collections.Generic;
 
 namespace LOrdCardShop.Controllers
 {
@@ -109,6 +111,15 @@ namespace LOrdCardShop.Controllers
             }
 
             return false;
+        }
+        public static List<Card> GetFeaturedCards()
+        {
+            return UsersHandler.GetFeaturedCards();
+        }
+
+        public static string AddToCart(int userId, int cardId, int quantity)
+        {
+            return UsersHandler.AddToCart(userId, cardId, quantity);
         }
     }
 }

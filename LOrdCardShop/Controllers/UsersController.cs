@@ -2,31 +2,67 @@
 using LOrdCardShop.Model;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Web;
+using System.Xml.Linq;
 
 namespace LOrdCardShop.Controllers
 {
     public class UsersController
     {
-        public static bool ValidateLogin(string username, string password)
+        public static string ValidateLogin(string username, string password, bool rememberMe)
         {
-            if (ValidateUsername(username) && ValidatePassword(password))
+            if (!ValidateUsername(username))
+                return "Username must be 5-30 letters only (letters and spaces allowed).";
+
+            if (!ValidatePassword(password))
+                return "Password must be at least 8 characters, contain letters and digits.";
+
+            User currentUser = UsersHandler.ValidateLogin(username, password);
+
+            if (currentUser == null)
+                return "Invalid credentials. Please try again";
+
+            if (rememberMe)
             {
-                return true;
+                HttpCookie userCookie = new HttpCookie("user_cookie")
+                {
+                    Values = { ["username"] = username, ["password"] = password },
+                    Expires = DateTime.Now.AddHours(1)
+                };
+                HttpContext.Current.Response.Cookies.Add(userCookie);
             }
 
-            return false;
+            HttpContext.Current.Session["userId"] = currentUser.UserID;
+            HttpContext.Current.Session["userRole"] = currentUser.UserRole.ToString();
+
+            return string.Empty;
         }
 
-        public static bool ValidateRegister(string username, string email, string password, string confirmPassword, string gender, string dob)
+        public static string ValidateRegister(string username, string email, string password, string confirmPassword, string gender, string dob)
         {
-            if (ValidateUsername(username) && ValidateEmail(email) && ValidatePassword(password) && ValidateConfirmPassword(password, confirmPassword) && ValidateGender(gender) && ValidateDOB(dob))
-            {
-                UsersHandler.AddUser(username, email, password, gender, dob);
-                return true;
-            }
+            if (!ValidateUsername(username))
+                return "Username must be 5-30 letters only (letters and spaces allowed).";
 
-            return false;
+            if (!ValidateEmail(email))
+                return "Email must contain '@' and not be empty.";
+
+            if (!ValidatePassword(password))
+                return "Password must be at least 8 characters, contain letters and digits.";
+
+            if (!ValidateConfirmPassword(password, confirmPassword))
+                return "Password confirmation does not match.";
+
+            if (!ValidateGender(gender))
+                return "Please select a valid gender.";
+
+            if (!ValidateDOB(dob))
+                return "You must be at least 17 years old.";
+
+            UsersHandler.AddUser(username, email, password, gender, dob);
+            return string.Empty;
         }
+
 
         private static bool ValidateUsername(string username)
         {

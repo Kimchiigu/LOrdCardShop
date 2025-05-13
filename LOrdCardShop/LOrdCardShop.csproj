@@ -92,7 +92,8 @@
     <Content Include="Style\output.css" />
     <Content Include="Style\styles.css" />
     <Content Include="Views\Admin\AddCardPage.aspx" />
-    <Content Include="Views\Customer\HomePage.aspx" />
+    <Content Include="Views\Customer\ProfilePage.aspx" />
+    <Content Include="Views\General\HomePage.aspx" />
     <Content Include="Views\Guest\RegisterPage.aspx" />
     <Content Include="Views\Guest\LoginPage.aspx" />
     <Content Include="Web.config" />
@@ -102,6 +103,13 @@
     <Compile Include="Database\DatabaseSingleton.cs" />
     <Compile Include="Factories\UsersFactory.cs" />
     <Compile Include="Handlers\UsersHandler.cs" />
+    <Compile Include="Master\Navbar.Master.cs">
+      <DependentUpon>Navbar.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\Navbar.Master.designer.cs">
+      <DependentUpon>Navbar.Master</DependentUpon>
+    </Compile>
     <Compile Include="Model\Card.cs">
       <DependentUpon>LordCardShopModel.tt</DependentUpon>
     </Compile>
@@ -141,11 +149,18 @@
     <Compile Include="Views\Admin\AddCardPage.aspx.designer.cs">
       <DependentUpon>AddCardPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Customer\HomePage.aspx.cs">
+    <Compile Include="Views\Customer\ProfilePage.aspx.cs">
+      <DependentUpon>ProfilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Customer\ProfilePage.aspx.designer.cs">
+      <DependentUpon>ProfilePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\General\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Customer\HomePage.aspx.designer.cs">
+    <Compile Include="Views\General\HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Guest\RegisterPage.aspx.cs">
@@ -172,6 +187,7 @@
     <Content Include="Model\LordCardShopModel.edmx.diagram">
       <DependentUpon>LordCardShopModel.edmx</DependentUpon>
     </Content>
+    <Content Include="Master\Navbar.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

@@ -14,6 +14,11 @@ namespace LOrdCardShop.Handlers
             UsersRepository.AddUser(username, email, password, gender, dob);
         }
 
+        public static User ValidateLogin(string username, string password)
+        {
+            return UsersRepository.ValidateLogin(username, password);
+        }
+
         public static List<Card> GetFeaturedCards()
         {
             return UsersRepository.GetFeaturedCards();

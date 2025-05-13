@@ -12,6 +12,11 @@ namespace LOrdCardShop.Repositories
     {
         private static LordCardShopDatabaseEntities db = DatabaseSingleton.GetInstance();
 
+        public static User ValidateLogin(string username, string password)
+        {
+            return db.Users.Where(u => u.UserName == username && u.UserPassword == password).FirstOrDefault();
+        }
+
         public static List<User> GetAllUsers()
         {
             return db.Users.ToList();
@@ -31,12 +36,19 @@ namespace LOrdCardShop.Repositories
 
         public static List<Card> GetFeaturedCards()
         {
-            //Fetch database buat ngambil 6 kartu (randomize)
+            List<Card> featuredCards = db.Cards.OrderBy(c => Guid.NewGuid())
+                .Take(6)
+                .ToList();
+
+            return featuredCards;
         }
 
         public static Cart GetCartItem(int userId, int cardId)
         {
-            //Dari function AddToCart
+            Cart cart = db.Carts
+                .Where(c => c.UserID == userId && c.CardID == cardId)
+                .FirstOrDefault();
+            return cart;
         }
 
         internal static void UpdateCart(Cart existingCart)

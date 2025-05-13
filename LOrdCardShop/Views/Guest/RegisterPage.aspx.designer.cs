@@ -11,7 +11,7 @@ namespace LOrdCardShop.Views
 {
 
 
-    public partial class LoginPage
+    public partial class RegisterPage
     {
 
         /// <summary>

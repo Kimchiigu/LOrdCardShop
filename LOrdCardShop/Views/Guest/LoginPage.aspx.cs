@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LOrdCardShop.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -12,9 +13,9 @@ namespace LOrdCardShop.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["user"] != null || Request.Cookies["user_cookie"] != null)
+            if ((Session["userId"] != null && Session["userRole"] != null) || Request.Cookies["user_cookie"] != null)
             {
-                Response.Redirect("~/Views/HomePage.aspx");
+                Response.Redirect("~/Views/General/HomePage.aspx");
                 return;
             }
         }
@@ -24,13 +25,19 @@ namespace LOrdCardShop.Views
             string username = TB_Login_Username.Text;
             string password = TB_Login_Password.Text;
             bool rememberMe = CB_RememberMe.Checked;
+            Lbl_Error.ForeColor = System.Drawing.Color.Red;
 
-            if (rememberMe)
+            string loginValidation = UsersController.ValidateLogin(username, password, rememberMe);
+
+            if (string.IsNullOrEmpty(loginValidation))
             {
-                HttpCookie cookie = new HttpCookie("user_cookie");
-                cookie.Value = username;
-                cookie.Expires = DateTime.Now.AddHours(1);
-                Response.Cookies.Add(cookie);
+                Lbl_Error.ForeColor = System.Drawing.Color.Green;
+                Lbl_Error.Text = "Login Success!";
+                Response.Redirect("~/Views/General/HomePage.aspx");
+            }
+            else
+            {
+                Lbl_Error.Text = loginValidation;
             }
         }
     }

@@ -92,6 +92,8 @@
     <Content Include="Style\output.css" />
     <Content Include="Style\styles.css" />
     <Content Include="Views\Admin\AddCardPage.aspx" />
+    <Content Include="Views\Admin\ManageCardPage.aspx" />
+    <Content Include="Views\Admin\UpdateCardPage.aspx" />
     <Content Include="Views\Customer\CardDetailPage.aspx" />
     <Content Include="Views\Customer\OrderCardPage.aspx" />
     <Content Include="Views\General\HomePage.aspx" />
@@ -155,6 +157,20 @@
     </Compile>
     <Compile Include="Views\Admin\AddCardPage.aspx.designer.cs">
       <DependentUpon>AddCardPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\ManageCardPage.aspx.cs">
+      <DependentUpon>ManageCardPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\ManageCardPage.aspx.designer.cs">
+      <DependentUpon>ManageCardPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\UpdateCardPage.aspx.cs">
+      <DependentUpon>UpdateCardPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\UpdateCardPage.aspx.designer.cs">
+      <DependentUpon>UpdateCardPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Customer\CardDetailPage.aspx.cs">
       <DependentUpon>CardDetailPage.aspx</DependentUpon>

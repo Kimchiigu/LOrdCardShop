@@ -1,11 +1,24 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginPage.aspx.cs" Inherits="LOrdCardShop.Views.LoginPage" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link href="~/Style/output.css" rel="stylesheet"/>
     <title>LOrdCardShop | Login</title>
+    <script type="text/javascript">
+        function togglePassword() {
+            var passwordField = document.getElementById("TB_Login_Password");
+            var toggleIcon = document.getElementById("password-toggle-icon");
+            
+            if (passwordField.type === "password") {
+                passwordField.type = "text";  
+                toggleIcon.textContent = "Hide";  
+            } else {
+                passwordField.type = "password";  
+                toggleIcon.textContent = "Show";  
+            }
+        }
+    </script>
 </head>
 <body class="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
     <div class="w-full max-w-md">
@@ -22,7 +35,8 @@
                 </div>
                 <div class="space-y-2">
                     <asp:Label ID="Lbl_Login_Password" runat="server" Text="Password" CssClass="block text-sm font-medium text-gray-700"></asp:Label>
-                    <asp:TextBox ID="TB_Login_Password" runat="server" TextMode="Password" CssClass="w-full rounded-lg border border-gray-300 px-4 py-2 transition-colors focus:ring-2 focus:ring-blue-500 focus:border-blue-500"  placeholder="Enter your password"></asp:TextBox>
+                    <asp:TextBox ID="TB_Login_Password" runat="server" TextMode="Password" CssClass="w-full rounded-lg border border-gray-300 px-4 py-2 transition-colors focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your password"></asp:TextBox>
+                    <button type="button" onclick="togglePassword()" class="mt-2 text-sm text-blue-600" id="password-toggle-icon">Show</button>
                 </div>
                 <div class="flex items-center">
                     <asp:CheckBox ID="CB_RememberMe" runat="server" CssClass="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"/>

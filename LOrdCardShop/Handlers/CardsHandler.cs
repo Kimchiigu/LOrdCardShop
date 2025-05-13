@@ -18,5 +18,9 @@ namespace LOrdCardShop.Handlers
         {
             return CardsRepository.GetCardById(id);
         }
+        public static void UpdateCard(Card updatedCard)
+        {
+            CardsRepository.UpdateCard(updatedCard);
+        }
     }
 }

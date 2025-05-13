@@ -18,5 +18,51 @@ namespace LOrdCardShop.Controllers
         {
             return CardsHandler.GetCardById(id);
         }
+        public static string UpdateCard(Card updatedCard)
+        {
+            if (!ValidateName(updatedCard.CardName))
+                return "Name must be 5-50 characters and contain only letters and spaces.";
+
+            if (!ValidatePrice(updatedCard.CardPrice))
+                return "Price must be at least 10000.";
+
+            if (!ValidateDescription(updatedCard.CardDesc))
+                return "Description must not be empty.";
+
+            if (!ValidateType(updatedCard.CardType))
+                return "Type must be 'Spell' or 'Monster'.";
+
+            CardsHandler.UpdateCard(updatedCard);
+            return string.Empty;
+        }
+
+        private static bool ValidateName(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name) || name.Length < 5 || name.Length > 50)
+                return false;
+
+            foreach (char c in name)
+            {
+                if (!char.IsLetter(c) && c != ' ')
+                    return false;
+            }
+
+            return true;
+        }
+
+        private static bool ValidatePrice(double price)
+        {
+            return price >= 10000;
+        }
+
+        private static bool ValidateDescription(string desc)
+        {
+            return !string.IsNullOrWhiteSpace(desc);
+        }
+
+        private static bool ValidateType(string type)
+        {
+            return type == "Spell" || type == "Monster";
+        }
     }
 }

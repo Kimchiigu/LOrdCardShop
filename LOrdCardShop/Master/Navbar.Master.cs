@@ -15,6 +15,12 @@ namespace LOrdCardShop.Master
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (Request.Url.AbsolutePath.Contains("LoginPage.aspx"))
+            {
+                return; 
+            }
+
             if (Session["userId"] == null && Session["userRole"] == null && Session["username"] == null)
             {
                 Response.Redirect("~/Views/Guest/LoginPage.aspx");
@@ -25,6 +31,7 @@ namespace LOrdCardShop.Master
             {
                 Username = Session["username"].ToString();
             }
+
 
             if (Session["userRole"] != null)
             {

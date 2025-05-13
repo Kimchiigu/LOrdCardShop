@@ -24,7 +24,7 @@
             <!-- ADMIN NAV -->
             <div id="AdminNav" runat="server" visible="false">
                 <a href="/Views/General/HomePage.aspx">Home</a> |
-                <a href="/Views/Admin/ManageCard.aspx">Manage Card</a> |
+                <a href="/Views/Admin/ManageCardPage.aspx">Manage Card</a> |
                 <a href="/Views/Admin/ViewTransaction.aspx">View Transaction</a> |
                 <a href="/Views/Admin/TransactionReport.aspx">Transaction Report</a> |
                 <a href="/Views/Admin/OrderQueue.aspx">Order Queue</a>

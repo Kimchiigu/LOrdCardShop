@@ -20,5 +20,26 @@ namespace LOrdCardShop.Repositories
         {
             return db.Cards.Find(id);
         }
+
+        public static void UpdateCard(Card updatedCard)
+        {
+            Card card = db.Cards.Find(updatedCard.CardID);
+            if (card!= null)
+            {
+                card.CardID = updatedCard.CardID;
+                card.CardPrice = updatedCard.CardPrice;
+                card.CardDesc = updatedCard.CardDesc;
+                card.CardType = updatedCard.CardType;
+                card.isFoil = updatedCard.isFoil;
+
+                db.SaveChanges();
+            }
+        }
+        public static void DeleteCard(int cardId)
+        {
+            Card deletedCard = GetCardById(cardId);
+            db.Cards.Remove(deletedCard);
+            db.SaveChanges();
+        }
     }
 }

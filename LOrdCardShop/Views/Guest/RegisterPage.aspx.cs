@@ -14,7 +14,7 @@ namespace LOrdCardShop.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if ((Session["userId"] != null && Session["userRole"] != null) || Request.Cookies["user_cookie"] != null)
+            if ((Session["userId"] != null && Session["userRole"] != null && Session["username"] != null) || Request.Cookies["user_cookie"] != null)
             {
                 Response.Redirect("~/Views/General/HomePage.aspx");
                 return;

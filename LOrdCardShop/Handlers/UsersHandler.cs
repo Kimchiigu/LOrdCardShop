@@ -19,31 +19,19 @@ namespace LOrdCardShop.Handlers
             return UsersRepository.ValidateLogin(username, password);
         }
 
-        public static List<Card> GetFeaturedCards()
+        public static User GetUserById(int id)
         {
-            return UsersRepository.GetFeaturedCards();
+            return UsersRepository.GetUserByID(id);
         }
 
-        internal static string AddToCart(int userId, int cardId, int quantity)
+        public static void UpdateUserWithPassword(User user)
         {
-            Cart existingCart = UsersRepository.GetCartItem(userId, cardId);
-            if (existingCart != null)
-            {
-                existingCart.Quantity += quantity;
-                UsersRepository.UpdateCart(existingCart);
-                return "Cart updated!";
-            }
-            else
-            {
-                Cart newCart = new Cart
-                {
-                    UserID = userId,
-                    CardID = cardId,
-                    Quantity = quantity
-                };
-                UsersRepository.InsertCart(newCart);
-                return "Card added to cart!";
-            }
+            UsersRepository.UpdateUserWithPassword(user);
+        }
+
+        public static void UpdateUserWithoutPassword(User user)
+        {
+            UsersRepository.UpdateUserWithoutPassword(user);
         }
     }
 }

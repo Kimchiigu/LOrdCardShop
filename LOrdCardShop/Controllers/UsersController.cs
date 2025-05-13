@@ -13,6 +13,7 @@ namespace LOrdCardShop.Controllers
         public static void Logout()
         {
             HttpContext.Current.Session["userId"] = null;
+            HttpContext.Current.Session["username"] = null;
             HttpContext.Current.Session["userRole"] = null;
 
             HttpCookie userCookie = HttpContext.Current.Request.Cookies["user_cookie"];
@@ -25,8 +26,44 @@ namespace LOrdCardShop.Controllers
             }
 
             HttpContext.Current.Session.Remove("userId");
+            HttpContext.Current.Session.Remove("username");
             HttpContext.Current.Session.Remove("userRole");
         }
+
+        public static string UpdateProfile(User updatedUser, string oldPassword, string newPassword, string confirmPassword)
+        {
+            if (!ValidateUsername(updatedUser.UserName))
+                return "Username must be 5-30 letters only (letters and spaces allowed).";
+
+            if (!ValidateEmail(updatedUser.UserEmail))
+                return "Email must contain '@' and not be empty.";
+
+            if (!ValidateGender(updatedUser.UserGender))
+                return "Please select a valid gender.";
+
+            if (!string.IsNullOrEmpty(newPassword))
+            {
+                if (!ValidatePassword(newPassword))
+                    return "New password must be at least 8 characters and alphanumeric.";
+
+                if (newPassword != confirmPassword)
+                    return "Confirmation password does not match.";
+
+                var existingUser = UsersHandler.GetUserById(updatedUser.UserID);
+                if (existingUser == null || existingUser.UserPassword != oldPassword)
+                    return "Old password is incorrect.";
+
+                updatedUser.UserPassword = newPassword;
+                UsersHandler.UpdateUserWithPassword(updatedUser);
+            }
+            else
+            {
+                UsersHandler.UpdateUserWithoutPassword(updatedUser);
+            }
+
+            return string.Empty;
+        }
+
 
         public static string ValidateLogin(string username, string password, bool rememberMe)
         {
@@ -52,6 +89,7 @@ namespace LOrdCardShop.Controllers
             }
 
             HttpContext.Current.Session["username"] = currentUser.UserName.ToString();
+            HttpContext.Current.Session["userId"] = currentUser.UserID.ToString();
             HttpContext.Current.Session["userRole"] = currentUser.UserRole.ToString();
 
             return string.Empty;
@@ -166,14 +204,10 @@ namespace LOrdCardShop.Controllers
 
             return false;
         }
-        public static List<Card> GetFeaturedCards()
-        {
-            return UsersHandler.GetFeaturedCards();
-        }
 
-        public static string AddToCart(int userId, int cardId, int quantity)
+        public static User GetUserById(int id)
         {
-            return UsersHandler.AddToCart(userId, cardId, quantity);
+            return UsersHandler.GetUserById(id);
         }
     }
 }

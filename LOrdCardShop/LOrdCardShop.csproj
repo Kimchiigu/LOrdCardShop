@@ -92,16 +92,22 @@
     <Content Include="Style\output.css" />
     <Content Include="Style\styles.css" />
     <Content Include="Views\Admin\AddCardPage.aspx" />
-    <Content Include="Views\Customer\ProfilePage.aspx" />
+    <Content Include="Views\Customer\CardDetailPage.aspx" />
+    <Content Include="Views\Customer\OrderCardPage.aspx" />
     <Content Include="Views\General\HomePage.aspx" />
+    <Content Include="Views\General\ProfilePage.aspx" />
     <Content Include="Views\Guest\RegisterPage.aspx" />
     <Content Include="Views\Guest\LoginPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CardsController.cs" />
+    <Compile Include="Factories\CartFactory.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Database\DatabaseSingleton.cs" />
+    <Compile Include="Factories\CardsFactory.cs" />
     <Compile Include="Factories\UsersFactory.cs" />
+    <Compile Include="Handlers\CardsHandler.cs" />
     <Compile Include="Handlers\UsersHandler.cs" />
     <Compile Include="Master\Navbar.Master.cs">
       <DependentUpon>Navbar.Master</DependentUpon>
@@ -141,6 +147,7 @@
       <DependentUpon>LordCardShopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CardsRepository.cs" />
     <Compile Include="Repositories\UsersRepository.cs" />
     <Compile Include="Views\Admin\AddCardPage.aspx.cs">
       <DependentUpon>AddCardPage.aspx</DependentUpon>
@@ -149,12 +156,19 @@
     <Compile Include="Views\Admin\AddCardPage.aspx.designer.cs">
       <DependentUpon>AddCardPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Customer\ProfilePage.aspx.cs">
-      <DependentUpon>ProfilePage.aspx</DependentUpon>
+    <Compile Include="Views\Customer\CardDetailPage.aspx.cs">
+      <DependentUpon>CardDetailPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Customer\ProfilePage.aspx.designer.cs">
-      <DependentUpon>ProfilePage.aspx</DependentUpon>
+    <Compile Include="Views\Customer\CardDetailPage.aspx.designer.cs">
+      <DependentUpon>CardDetailPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customer\OrderCardPage.aspx.cs">
+      <DependentUpon>OrderCardPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Customer\OrderCardPage.aspx.designer.cs">
+      <DependentUpon>OrderCardPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\General\HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
@@ -162,6 +176,13 @@
     </Compile>
     <Compile Include="Views\General\HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\General\ProfilePage.aspx.cs">
+      <DependentUpon>ProfilePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\General\ProfilePage.aspx.designer.cs">
+      <DependentUpon>ProfilePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Guest\RegisterPage.aspx.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>

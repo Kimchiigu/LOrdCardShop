@@ -51,14 +51,31 @@ namespace LOrdCardShop.Repositories
             return cart;
         }
 
-        internal static void UpdateCart(Cart existingCart)
+        public static void UpdateUserWithoutPassword(User user)
         {
-            //Dari function AddToCart
+            User oldUser = db.Users.Find(user.UserID);
+            if (oldUser != null)
+            {
+                oldUser.UserName = user.UserName;
+                oldUser.UserEmail = user.UserEmail;
+                oldUser.UserGender = user.UserGender;
+
+                db.SaveChanges();
+            }
         }
 
-        internal static void InsertCart(Cart newCart)
+        public static void UpdateUserWithPassword(User user)
         {
-            //Dari function AddToCart
+            User oldUser = db.Users.Find(user.UserID);
+            if (oldUser != null)
+            {
+                oldUser.UserName = user.UserName;
+                oldUser.UserEmail = user.UserEmail;
+                oldUser.UserGender = user.UserGender;
+                oldUser.UserPassword = user.UserPassword;
+
+                db.SaveChanges();
+            }
         }
     }
 }

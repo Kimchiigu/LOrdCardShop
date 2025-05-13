@@ -18,7 +18,7 @@ namespace LOrdCardShop.Model
         public int CardID { get; set; }
         public int Quantity { get; set; }
     
-        public virtual Card Card { get; set; }
         public virtual TransactionHeader TransactionHeader { get; set; }
+        public virtual Card Card { get; set; }
     }
 }

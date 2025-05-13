@@ -15,6 +15,12 @@ namespace LOrdCardShop.Master
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userId"] == null && Session["userRole"] == null && Session["username"] == null)
+            {
+                Response.Redirect("~/Views/Guest/LoginPage.aspx");
+                return;
+            }
+
             if (Session["username"] != null)
             {
                 Username = Session["username"].ToString();
@@ -37,7 +43,7 @@ namespace LOrdCardShop.Master
         protected void Btn_Logout_Click(object sender, EventArgs e)
         {
             UsersController.Logout();
-            Response.Redirect("~/Views/Guest/Login.aspx");
+            Response.Redirect("~/Views/Guest/LoginPage.aspx");
         }
 
         protected void Btn_Search_Click(object sender, EventArgs e)

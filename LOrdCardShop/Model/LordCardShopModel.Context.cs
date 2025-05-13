@@ -25,10 +25,10 @@ namespace LOrdCardShop.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Card> Cards { get; set; }
         public virtual DbSet<Cart> Carts { get; set; }
         public virtual DbSet<TransactionDetail> TransactionDetails { get; set; }
         public virtual DbSet<TransactionHeader> TransactionHeaders { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Card> Cards { get; set; }
     }
 }

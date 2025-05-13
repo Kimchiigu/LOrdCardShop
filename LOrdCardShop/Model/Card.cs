@@ -26,7 +26,7 @@ namespace LOrdCardShop.Model
         public double CardPrice { get; set; }
         public string CardDesc { get; set; }
         public string CardType { get; set; }
-        public byte[] isFoil { get; set; }
+        public bool isFoil { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cart> Carts { get; set; }

@@ -16,7 +16,7 @@
             <!-- CUSTOMER NAV -->
             <div id="CustomerNav" runat="server" visible="false">
                 <a href="/Views/General/HomePage.aspx">Home</a> |
-                <a href="/Views/Customer/OrderCard.aspx">Order Card</a> |
+                <a href="/Views/Customer/OrderCardPage.aspx">Order Card</a> |
                 <a href="/Views/Customer/History.aspx">History</a> |
                 <a href="/Views/Customer/Cart.aspx">Cart</a>
             </div>

@@ -10,6 +10,24 @@ namespace LOrdCardShop.Controllers
 {
     public class UsersController
     {
+        public static void Logout()
+        {
+            HttpContext.Current.Session["userId"] = null;
+            HttpContext.Current.Session["userRole"] = null;
+
+            HttpCookie userCookie = HttpContext.Current.Request.Cookies["user_cookie"];
+            if (userCookie != null)
+            {
+                userCookie.Values["name"] = null;
+                userCookie.Values["password"] = null;
+                userCookie.Expires = DateTime.Now.AddDays(-1);
+                HttpContext.Current.Response.Cookies.Add(userCookie);
+            }
+
+            HttpContext.Current.Session.Remove("userId");
+            HttpContext.Current.Session.Remove("userRole");
+        }
+
         public static string ValidateLogin(string username, string password, bool rememberMe)
         {
             if (!ValidateUsername(username))
@@ -33,7 +51,7 @@ namespace LOrdCardShop.Controllers
                 HttpContext.Current.Response.Cookies.Add(userCookie);
             }
 
-            HttpContext.Current.Session["userId"] = currentUser.UserID;
+            HttpContext.Current.Session["username"] = currentUser.UserName.ToString();
             HttpContext.Current.Session["userRole"] = currentUser.UserRole.ToString();
 
             return string.Empty;

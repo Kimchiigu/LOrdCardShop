@@ -9,9 +9,14 @@ namespace LOrdCardShop.Views.Customer
 {
     public partial class HomePage : System.Web.UI.Page
     {
+        public string Username { get; private set; } = "Guest";
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["username"] != null)
+            {
+                Username = Session["username"].ToString();
+            }
         }
     }
 }

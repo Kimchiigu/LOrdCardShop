@@ -10,13 +10,36 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <h1 class="text-xl text-blue-600">Welcome, {username}!</h1>
+        <div style="background-color:#f5f5f5; padding:10px">
+            <h2>Welcome, <%= Username %>!</h2>
+
+            <!-- CUSTOMER NAV -->
+            <div id="CustomerNav" runat="server" visible="false">
+                <a href="/Views/General/HomePage.aspx">Home</a> |
+                <a href="/Views/Customer/OrderCard.aspx">Order Card</a> |
+                <a href="/Views/Customer/History.aspx">History</a> |
+                <a href="/Views/Customer/Cart.aspx">Cart</a>
+            </div>
+
+            <!-- ADMIN NAV -->
+            <div id="AdminNav" runat="server" visible="false">
+                <a href="/Views/General/HomePage.aspx">Home</a> |
+                <a href="/Views/Admin/ManageCard.aspx">Manage Card</a> |
+                <a href="/Views/Admin/ViewTransaction.aspx">View Transaction</a> |
+                <a href="/Views/Admin/TransactionReport.aspx">Transaction Report</a> |
+                <a href="/Views/Admin/OrderQueue.aspx">Order Queue</a>
+            </div>
+
+            <!-- COMMON NAV -->
+            <div>
+                <a href="/Views/General/ProfilePage.aspx">Profile</a> |
+                <asp:TextBox ID="TB_Search" runat="server" />
+                <asp:Button ID="Btn_Search" runat="server" Text="Search" OnClick="Btn_Search_Click" />
+                <asp:Button ID="Btn_Logout" runat="server" Text="Logout" OnClick="Btn_Logout_Click" />
+            </div>
         </div>
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
     </form>
 </body>
 </html>

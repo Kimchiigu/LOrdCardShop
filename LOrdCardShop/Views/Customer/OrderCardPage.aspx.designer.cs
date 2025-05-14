@@ -15,12 +15,12 @@ namespace LOrdCardShop.Views.Customer
     {
 
         /// <summary>
-        /// RepeaterCards control.
+        /// GV_Cards control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterCards;
+        protected global::System.Web.UI.WebControls.GridView GV_Cards;
     }
 }

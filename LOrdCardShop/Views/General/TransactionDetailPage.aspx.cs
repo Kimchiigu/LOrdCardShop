@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LOrdCardShop.Controllers;
+using LOrdCardShop.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,13 @@ namespace LOrdCardShop.Views.General
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack && Request.QueryString["transactionId"] != null)
+            {
+                int transactionId = Convert.ToInt32(Request.QueryString["transactionId"]);
+                TransactionDetail details = TransactionDetailController.GetTransactionDetailByHeaderId(transactionId);
+                GV_Details.DataSource = details;
+                GV_Details.DataBind();
+            }
         }
     }
 }

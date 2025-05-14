@@ -1,4 +1,5 @@
 ﻿using LOrdCardShop.Controllers;
+using LOrdCardShop.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,27 +14,31 @@ namespace LOrdCardShop.Views.Customer
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsCustomer()) Response.Redirect("~/Views/Guest/LoginPage.aspx");
+
             if (!IsPostBack)
             {
-                var cards = CardsController.GetAllCards();
-                RepeaterCards.DataSource = cards;
-                RepeaterCards.DataBind();
+                RefreshGrid();
             }
         }
 
-        protected void CardCommand(object sender, CommandEventArgs e)
+        private void RefreshGrid()
         {
-            int cardId = int.Parse(e.CommandArgument.ToString());
+            List<Card> cards = CardsController.GetAllCards();
+            GV_Cards.DataSource = cards;
+            GV_Cards.DataBind();
+        }
+
+        protected void GV_Cards_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int cardId = Convert.ToInt32(e.CommandArgument);
             int userId = Convert.ToInt32(Session["userId"]);
+            int rowIndex = ((GridViewRow)((Control)e.CommandSource).NamingContainer).RowIndex;
+
             int quantity = 1;
 
-            var button = (Button)sender;
-            var item = (RepeaterItem)button.NamingContainer;
-            var TB_Quantity = (TextBox)item.FindControl("TB_Quantity");
-
-            if (TB_Quantity != null && int.TryParse(TB_Quantity.Text, out int qty))
+            if (GV_Cards.Rows[rowIndex].FindControl("TB_Quantity") is TextBox tbQuantity && int.TryParse(tbQuantity.Text, out int parsedQty))
             {
-                quantity = Math.Max(1, qty);
+                quantity = Math.Max(1, parsedQty);
             }
 
             if (e.CommandName == "AddToCart")

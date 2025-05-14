@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -93,6 +96,8 @@
     <Content Include="Style\styles.css" />
     <Content Include="Views\Admin\AddCardPage.aspx" />
     <Content Include="Views\Admin\ManageCardPage.aspx" />
+    <Content Include="Views\Admin\OrderQueuePage.aspx" />
+    <Content Include="Views\Admin\TransactionReportPage.aspx" />
     <Content Include="Views\Admin\UpdateCardPage.aspx" />
     <Content Include="Views\Customer\CardDetailPage.aspx" />
     <Content Include="Views\Customer\CartPage.aspx" />
@@ -179,6 +184,20 @@
     </Compile>
     <Compile Include="Views\Admin\ManageCardPage.aspx.designer.cs">
       <DependentUpon>ManageCardPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\OrderQueuePage.aspx.cs">
+      <DependentUpon>OrderQueuePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\OrderQueuePage.aspx.designer.cs">
+      <DependentUpon>OrderQueuePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\TransactionReportPage.aspx.cs">
+      <DependentUpon>TransactionReportPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\TransactionReportPage.aspx.designer.cs">
+      <DependentUpon>TransactionReportPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\UpdateCardPage.aspx.cs">
       <DependentUpon>UpdateCardPage.aspx</DependentUpon>
@@ -276,9 +295,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

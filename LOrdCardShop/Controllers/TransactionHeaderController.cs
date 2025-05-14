@@ -14,6 +14,16 @@ namespace LOrdCardShop.Controllers
             return TransactionHeaderHandler.CreateTransactionHeader(customerId);
         }
 
+        public static List<TransactionHeader> GetAllTransactionHeaders()
+        {
+            return TransactionHeaderHandler.GetAllTransactionHeaders();
+        }
+
+        public static List<TransactionHeader> GetAllTransactionHeadersByUserId(int userId)
+        {
+            return TransactionHeaderHandler.GetAllTransactionHeadersByUserId(userId);
+        }
+
         public static string Checkout(int userId)
         {
             List<Cart> cartItems = CartsHandler.GetAllCartsByUserId(userId);
@@ -30,6 +40,11 @@ namespace LOrdCardShop.Controllers
             CartsHandler.ClearCart(userId);
 
             return string.Empty;
+        }
+
+        public static void HandleTransaction(int transactionId)
+        {
+            TransactionHeaderHandler.HandleTransaction(transactionId);
         }
     }
 }

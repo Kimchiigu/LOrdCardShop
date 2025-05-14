@@ -17,6 +17,11 @@ namespace LOrdCardShop.Repositories
             return db.TransactionHeaders.ToList();
         }
 
+        public static List<TransactionHeader> GetAllTransactionHeadersByUserId(int userId)
+        {
+            return db.TransactionHeaders.Where(th => th.CustomerID == userId).ToList();
+        }
+
         public static int CreateTransactionHeader(int customerId)
         {
             TransactionHeader newTransactionHeader = TransactionHeaderFactory.CreateTransactionHeader(customerId);
@@ -24,6 +29,16 @@ namespace LOrdCardShop.Repositories
             db.SaveChanges();
 
             return newTransactionHeader.TransactionID;
+        }
+
+        public static void HandleTransaction(int transactionId)
+        {
+            TransactionHeader transactionHeader = db.TransactionHeaders.Find(transactionId);
+            if (transactionHeader != null)
+            {
+                transactionHeader.Status = "handled";
+                db.SaveChanges();
+            }
         }
     }
 }

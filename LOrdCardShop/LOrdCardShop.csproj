@@ -95,6 +95,7 @@
     <Content Include="Views\Admin\ManageCardPage.aspx" />
     <Content Include="Views\Admin\UpdateCardPage.aspx" />
     <Content Include="Views\Customer\CardDetailPage.aspx" />
+    <Content Include="Views\Customer\CartPage.aspx" />
     <Content Include="Views\Customer\OrderCardPage.aspx" />
     <Content Include="Views\General\HomePage.aspx" />
     <Content Include="Views\General\ProfilePage.aspx" />
@@ -104,12 +105,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\CardsController.cs" />
-    <Compile Include="Factories\CartFactory.cs" />
+    <Compile Include="Controllers\CartsController.cs" />
+    <Compile Include="Factories\CartsFactory.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Database\DatabaseSingleton.cs" />
     <Compile Include="Factories\CardsFactory.cs" />
     <Compile Include="Factories\UsersFactory.cs" />
     <Compile Include="Handlers\CardsHandler.cs" />
+    <Compile Include="Handlers\CartsHandler.cs" />
     <Compile Include="Handlers\UsersHandler.cs" />
     <Compile Include="Master\Navbar.Master.cs">
       <DependentUpon>Navbar.Master</DependentUpon>
@@ -150,6 +153,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CardsRepository.cs" />
+    <Compile Include="Repositories\CartsRepository.cs" />
     <Compile Include="Repositories\UsersRepository.cs" />
     <Compile Include="Views\Admin\AddCardPage.aspx.cs">
       <DependentUpon>AddCardPage.aspx</DependentUpon>
@@ -178,6 +182,13 @@
     </Compile>
     <Compile Include="Views\Customer\CardDetailPage.aspx.designer.cs">
       <DependentUpon>CardDetailPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Customer\CartPage.aspx.cs">
+      <DependentUpon>CartPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Customer\CartPage.aspx.designer.cs">
+      <DependentUpon>CartPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Customer\OrderCardPage.aspx.cs">
       <DependentUpon>OrderCardPage.aspx</DependentUpon>

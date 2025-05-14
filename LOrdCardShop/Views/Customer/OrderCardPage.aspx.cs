@@ -25,10 +25,11 @@ namespace LOrdCardShop.Views.Customer
         {
             int cardId = int.Parse(e.CommandArgument.ToString());
             int userId = Convert.ToInt32(Session["userId"]);
+            int quantity = 1;
 
             if (e.CommandName == "AddToCart")
             {
-                // belum ya
+                CartsController.AddCardToCart(cardId, userId, quantity);
             }
             else if (e.CommandName == "ViewDetail")
             {

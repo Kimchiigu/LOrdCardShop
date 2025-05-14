@@ -35,7 +35,6 @@ namespace LOrdCardShop.Views.Admin
                 cardGV.Visible = false;
                 ErrorLbl.Text = "No Cards Found!";
             }
-
         }
 
         protected void cardGV_RowEditing(object sender, GridViewEditEventArgs e)

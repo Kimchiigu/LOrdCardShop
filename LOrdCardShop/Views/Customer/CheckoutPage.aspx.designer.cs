@@ -15,13 +15,13 @@ namespace LOrdCardShop.Views.Customer
     {
 
         /// <summary>
-        /// GV_Cartl control.
+        /// GV_Cart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GV_Cartl;
+        protected global::System.Web.UI.WebControls.GridView GV_Cart;
 
         /// <summary>
         /// Lbl_Error control.

@@ -13,5 +13,10 @@ namespace LOrdCardShop.Handlers
         {
             return TransactionDetailRepository.GetTransactionDetailByHeaderId(transactionHeaderId);
         }
+
+        public static void CreateTransactionDetail(int transactionId, int cardId, int quantity)
+        {
+            TransactionDetailRepository.CreateTransactionDetail(transactionId, cardId, quantity);
+        }
     }
 }

@@ -17,11 +17,13 @@ namespace LOrdCardShop.Repositories
             return db.TransactionHeaders.ToList();
         }
 
-        public static void CreateTransactionHeader(int customerId)
+        public static int CreateTransactionHeader(int customerId)
         {
             TransactionHeader newTransactionHeader = TransactionHeaderFactory.CreateTransactionHeader(customerId);
             db.TransactionHeaders.Add(newTransactionHeader);
             db.SaveChanges();
+
+            return newTransactionHeader.TransactionID;
         }
     }
 }

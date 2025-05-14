@@ -19,6 +19,11 @@ namespace LOrdCardShop.Handlers
             CartsRepository.DeleteCart(cartId);
         }
 
+        public static void ClearCart(int userId)
+        {
+            CartsRepository.ClearCart(userId);
+        }
+
         public static void AddCardToCart(int cardId, int userId, int quantity)
         {
             CartsRepository.AddCardToCart(cardId, userId, quantity);

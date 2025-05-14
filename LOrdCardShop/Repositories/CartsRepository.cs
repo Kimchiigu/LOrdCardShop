@@ -17,6 +17,12 @@ namespace LOrdCardShop.Repositories
             return db.Carts.ToList().Where(c => c.UserID == userId).ToList();
         }
 
+        public static void ClearCart(int userId)
+        {
+            db.Carts.RemoveRange(db.Carts.Where(c => c.UserID == userId));
+            db.SaveChanges();
+        }
+
         public static void DeleteCart(int cartId)
         {
             Cart deletedCart = db.Carts.Find(cartId);
@@ -30,8 +36,19 @@ namespace LOrdCardShop.Repositories
 
         public static void AddCardToCart(int cardId, int userId, int quantity)
         {
-            Cart newCart = CartsFactory.CreateCart(cardId, userId, quantity);
-            db.Carts.Add(newCart);
+            Cart existingCart = db.Carts
+            .FirstOrDefault(c => c.CardID == cardId && c.UserID == userId);
+
+            if (existingCart != null)
+            {
+                existingCart.Quantity += quantity;
+            }
+            else
+            {
+                Cart newCart = CartsFactory.CreateCart(cardId, userId, quantity);
+                db.Carts.Add(newCart);
+            }
+
             db.SaveChanges();
         }
     }

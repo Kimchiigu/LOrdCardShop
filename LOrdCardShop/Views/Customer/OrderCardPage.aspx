@@ -7,9 +7,14 @@
         <ItemTemplate>
             <div class="card-box">
                 <h3><%# Eval("CardName") %> - $<%# Eval("CardPrice") %></h3>
+
+                Quantity:
+                <asp:TextBox ID="TB_Quantity" runat="server" Text="1" Width="50px" />
+
                 <asp:Button runat="server" CommandName="AddToCart" CommandArgument='<%# Eval("CardID") %>' Text="Add to Cart" OnCommand="CardCommand" />
                 <asp:Button runat="server" CommandName="ViewDetail" CommandArgument='<%# Eval("CardID") %>' Text="Detail" OnCommand="CardCommand" />
             </div>
         </ItemTemplate>
     </asp:Repeater>
+
 </asp:Content>

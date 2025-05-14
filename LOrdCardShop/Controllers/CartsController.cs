@@ -20,6 +20,11 @@ namespace LOrdCardShop.Controllers
             CartsHandler.DeleteCart(cartId);
         }
 
+        public static void ClearCart(int userId)
+        {
+            CartsHandler.ClearCart(userId);
+        }
+
         public static void AddCardToCart(int cardId, int userId, int quantity)
         {
             CartsHandler.AddCardToCart(cardId, userId, quantity);

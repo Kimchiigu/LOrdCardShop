@@ -100,6 +100,7 @@
     <Content Include="Views\Customer\OrderCardPage.aspx" />
     <Content Include="Views\General\HomePage.aspx" />
     <Content Include="Views\General\ProfilePage.aspx" />
+    <Content Include="Views\General\TransactionDetailPage.aspx" />
     <Content Include="Views\General\TransactionHistoryPage.aspx" />
     <Content Include="Views\Guest\RegisterPage.aspx" />
     <Content Include="Views\Guest\LoginPage.aspx" />
@@ -108,7 +109,7 @@
   <ItemGroup>
     <Compile Include="Controllers\CardsController.cs" />
     <Compile Include="Controllers\CartsController.cs" />
-    <Compile Include="Controllers\TransactionDetailHandler.cs" />
+    <Compile Include="Controllers\TransactionDetailController.cs" />
     <Compile Include="Controllers\TransactionHeaderController.cs" />
     <Compile Include="Factories\CartsFactory.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -227,6 +228,13 @@
     </Compile>
     <Compile Include="Views\General\ProfilePage.aspx.designer.cs">
       <DependentUpon>ProfilePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\General\TransactionDetailPage.aspx.cs">
+      <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\General\TransactionDetailPage.aspx.designer.cs">
+      <DependentUpon>TransactionDetailPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\General\TransactionHistoryPage.aspx.cs">
       <DependentUpon>TransactionHistoryPage.aspx</DependentUpon>

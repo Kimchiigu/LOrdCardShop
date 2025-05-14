@@ -15,6 +15,7 @@
                     </Columns>
                 </asp:GridView>
                 <asp:Label ID="Lbl_Error" runat="server" Text="Error"></asp:Label><br />
+                <asp:Button ID="Btn_Clear" runat="server" Text="Clear" OnClick="Btn_Clear_Click" />
                 <asp:Button ID="Btn_Checkout" runat="server" Text="Checkout" OnClick="Btn_Checkout_Click" />
             </div>
         </div>

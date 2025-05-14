@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-md-12">
             <h2>Checkout Page</h2>
-            <asp:GridView ID="GV_Cartl" runat="server" AutoGenerateColumns="False" DataKeyNames="CardID" CssClass="table-bordered table">
+            <asp:GridView ID="GV_Cart" runat="server" AutoGenerateColumns="False" DataKeyNames="CardID" CssClass="table-bordered table">
                 <Columns>
                     <asp:BoundField DataField="CardID" HeaderText="ID" />
                     <asp:BoundField DataField="CardName" HeaderText="Card Name" />
@@ -14,8 +14,9 @@
                     <asp:BoundField DataField="CardDesc" HeaderText="Description" />
                 </Columns>
             </asp:GridView>
+            <h3>Total Price : <%= TotalPrice %></h3>
             <asp:Label ID="Lbl_Error" runat="server" Text="Error"></asp:Label><br />
-            <asp:Button ID="Btn_Checkout" runat="server" Text="Button" OnClick="Btn_Checkout_Click" />
+            <asp:Button ID="Btn_Checkout" runat="server" Text="Checkout" OnClick="Btn_Checkout_Click" />
         </div>
     </div>
 </div>

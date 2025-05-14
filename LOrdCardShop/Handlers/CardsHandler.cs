@@ -22,5 +22,10 @@ namespace LOrdCardShop.Handlers
         {
             CardsRepository.UpdateCard(updatedCard);
         }
+
+        public static void AddCard(string cardName, double cardPrice, string cardDesc, string cardType, bool isFoil)
+        {
+            CardsRepository.AddCard(cardName, cardPrice, cardDesc, cardType, isFoil);
+        }
     }
 }

@@ -18,6 +18,28 @@ namespace LOrdCardShop.Controllers
         {
             return CardsHandler.GetCardById(id);
         }
+
+        public static string AddCard(string cardName, double cardPrice, string cardDesc, string cardType, bool isFoil)
+        {
+            if (!ValidateName(cardName))
+                return "Name must be 5-50 characters and contain only letters and spaces.";
+
+            if (!ValidatePrice(cardPrice))
+                return "Price must be at least 10000.";
+
+            if (!ValidateDescription(cardDesc))
+                return "Description must not be empty.";
+
+            if (!ValidateType(cardType))
+                return "Type must be 'Spell' or 'Monster'.";
+
+            if (!ValidateFoil(isFoil))
+                return "Foil must be true or false.";
+
+            CardsHandler.AddCard(cardName, cardPrice, cardDesc, cardType, isFoil);
+            return string.Empty;
+        }
+
         public static string UpdateCard(Card updatedCard)
         {
             if (!ValidateName(updatedCard.CardName))
@@ -31,6 +53,9 @@ namespace LOrdCardShop.Controllers
 
             if (!ValidateType(updatedCard.CardType))
                 return "Type must be 'Spell' or 'Monster'.";
+
+            if (!ValidateFoil(updatedCard.isFoil))
+                return "Foil must be true or false.";
 
             CardsHandler.UpdateCard(updatedCard);
             return string.Empty;
@@ -63,6 +88,11 @@ namespace LOrdCardShop.Controllers
         private static bool ValidateType(string type)
         {
             return type == "Spell" || type == "Monster";
+        }
+
+        private static bool ValidateFoil(bool isFoil)
+        {
+            return isFoil == true || isFoil == false;
         }
     }
 }

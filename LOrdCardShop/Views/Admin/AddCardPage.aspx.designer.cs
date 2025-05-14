@@ -15,15 +15,6 @@ namespace LOrdCardShop.Views.Admin
     {
 
         /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
         /// Lbl_AddCard_Name control.
         /// </summary>
         /// <remarks>
@@ -87,13 +78,13 @@ namespace LOrdCardShop.Views.Admin
         protected global::System.Web.UI.WebControls.Label Lbl_AddCard_Type;
 
         /// <summary>
-        /// TB_AddCard_Type control.
+        /// DDL_AddCard_Type control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TB_AddCard_Type;
+        protected global::System.Web.UI.WebControls.DropDownList DDL_AddCard_Type;
 
         /// <summary>
         /// Lbl_AddCard_Foil control.
@@ -105,13 +96,13 @@ namespace LOrdCardShop.Views.Admin
         protected global::System.Web.UI.WebControls.Label Lbl_AddCard_Foil;
 
         /// <summary>
-        /// TB_AddCard_Foil control.
+        /// CB_AddCard_Foil control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TB_AddCard_Foil;
+        protected global::System.Web.UI.WebControls.CheckBox CB_AddCard_Foil;
 
         /// <summary>
         /// Btn_Insert control.

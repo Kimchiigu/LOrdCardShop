@@ -1,25 +1,25 @@
-﻿using System;
+﻿using LOrdCardShop.Model;
+using LOrdCardShop.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using LOrdCardShop.Model;
-using LOrdCardShop.Repositories;
 
 namespace LOrdCardShop.Views.Admin
 {
-    public partial class ManageCard : System.Web.UI.Page
+    public partial class ManageCardPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                refreshGrid();
+                RefreshGrid();
             }
         }
 
-        protected void refreshGrid()
+        protected void RefreshGrid()
         {
             List<Card> cards = CardsRepository.GetAllCards();
 
@@ -55,7 +55,7 @@ namespace LOrdCardShop.Views.Admin
             CardsRepository.DeleteCard(cardId);
 
             cardGV.EditIndex = -1;
-            refreshGrid();
+            RefreshGrid();
         }
 
         protected void InsertBtn_Click(object sender, EventArgs e)

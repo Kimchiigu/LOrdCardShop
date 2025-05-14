@@ -1,13 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UpdateCardPage.aspx.cs" Inherits="LOrdCardShop.Views.Admin.UpdateCardPage" %>
-
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Update Card</title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master/Navbar.Master" AutoEventWireup="true" CodeBehind="UpdateCardPage.aspx.cs" Inherits="LOrdCardShop.Views.Admin.UpdateCardPage" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div>
             <h1>Update Card</h1>
             <br />
             <asp:Label ID="CardIDLbl" runat="server" Text="Card ID: " />
@@ -40,6 +35,4 @@
             <asp:Label ID="lblError" runat="server" Text="" ForeColor="Red"></asp:Label>
 
         </div>
-    </form>
-</body>
-</html>
+</asp:Content>

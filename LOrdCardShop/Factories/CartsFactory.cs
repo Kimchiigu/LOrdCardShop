@@ -8,7 +8,7 @@ namespace LOrdCardShop.Controllers
 {
     public class CartsFactory
     {
-        public static Cart CreateCart(int userId, int cardId, int quantity)
+        public static Cart CreateCart(int cardId, int userId, int quantity)
         {
             Cart cart = new Cart
             {

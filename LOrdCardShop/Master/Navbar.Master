@@ -17,17 +17,17 @@
             <div id="CustomerNav" runat="server" visible="false">
                 <a href="/Views/General/HomePage.aspx">Home</a> |
                 <a href="/Views/Customer/OrderCardPage.aspx">Order Card</a> |
-                <a href="/Views/Customer/History.aspx">History</a> |
-                <a href="/Views/Customer/Cart.aspx">Cart</a>
+                <a href="/Views/Customer/HistoryPage.aspx">History</a> |
+                <a href="/Views/Customer/CartPage.aspx">Cart</a>
             </div>
 
             <!-- ADMIN NAV -->
             <div id="AdminNav" runat="server" visible="false">
                 <a href="/Views/General/HomePage.aspx">Home</a> |
                 <a href="/Views/Admin/ManageCardPage.aspx">Manage Card</a> |
-                <a href="/Views/Admin/ViewTransaction.aspx">View Transaction</a> |
-                <a href="/Views/Admin/TransactionReport.aspx">Transaction Report</a> |
-                <a href="/Views/Admin/OrderQueue.aspx">Order Queue</a>
+                <a href="/Views/Admin/ViewTransactionPage.aspx">View Transaction</a> |
+                <a href="/Views/Admin/TransactionReportPage.aspx">Transaction Report</a> |
+                <a href="/Views/Admin/OrderQueuePage.aspx">Order Queue</a>
             </div>
 
             <!-- COMMON NAV -->

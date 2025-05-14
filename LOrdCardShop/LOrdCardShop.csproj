@@ -96,9 +96,11 @@
     <Content Include="Views\Admin\UpdateCardPage.aspx" />
     <Content Include="Views\Customer\CardDetailPage.aspx" />
     <Content Include="Views\Customer\CartPage.aspx" />
+    <Content Include="Views\Customer\CheckoutPage.aspx" />
     <Content Include="Views\Customer\OrderCardPage.aspx" />
     <Content Include="Views\General\HomePage.aspx" />
     <Content Include="Views\General\ProfilePage.aspx" />
+    <Content Include="Views\General\TransactionHistoryPage.aspx" />
     <Content Include="Views\Guest\RegisterPage.aspx" />
     <Content Include="Views\Guest\LoginPage.aspx" />
     <Content Include="Web.config" />
@@ -106,13 +108,19 @@
   <ItemGroup>
     <Compile Include="Controllers\CardsController.cs" />
     <Compile Include="Controllers\CartsController.cs" />
+    <Compile Include="Controllers\TransactionDetailHandler.cs" />
+    <Compile Include="Controllers\TransactionHeaderController.cs" />
     <Compile Include="Factories\CartsFactory.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Database\DatabaseSingleton.cs" />
     <Compile Include="Factories\CardsFactory.cs" />
+    <Compile Include="Factories\TransactionDetailFactory.cs" />
+    <Compile Include="Factories\TransactionHeaderFactory.cs" />
     <Compile Include="Factories\UsersFactory.cs" />
     <Compile Include="Handlers\CardsHandler.cs" />
     <Compile Include="Handlers\CartsHandler.cs" />
+    <Compile Include="Handlers\TransactionDetailHandler.cs" />
+    <Compile Include="Handlers\TransactionHeaderHandler.cs" />
     <Compile Include="Handlers\UsersHandler.cs" />
     <Compile Include="Master\Navbar.Master.cs">
       <DependentUpon>Navbar.Master</DependentUpon>
@@ -154,6 +162,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CardsRepository.cs" />
     <Compile Include="Repositories\CartsRepository.cs" />
+    <Compile Include="Repositories\TransactionDetailRepository.cs" />
+    <Compile Include="Repositories\TransactionHeaderRepository.cs" />
     <Compile Include="Repositories\UsersRepository.cs" />
     <Compile Include="Views\Admin\AddCardPage.aspx.cs">
       <DependentUpon>AddCardPage.aspx</DependentUpon>
@@ -190,6 +200,13 @@
     <Compile Include="Views\Customer\CartPage.aspx.designer.cs">
       <DependentUpon>CartPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Customer\CheckoutPage.aspx.cs">
+      <DependentUpon>CheckoutPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Customer\CheckoutPage.aspx.designer.cs">
+      <DependentUpon>CheckoutPage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Customer\OrderCardPage.aspx.cs">
       <DependentUpon>OrderCardPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -210,6 +227,13 @@
     </Compile>
     <Compile Include="Views\General\ProfilePage.aspx.designer.cs">
       <DependentUpon>ProfilePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\General\TransactionHistoryPage.aspx.cs">
+      <DependentUpon>TransactionHistoryPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\General\TransactionHistoryPage.aspx.designer.cs">
+      <DependentUpon>TransactionHistoryPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Guest\RegisterPage.aspx.cs">
       <DependentUpon>RegisterPage.aspx</DependentUpon>

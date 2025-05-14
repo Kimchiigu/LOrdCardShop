@@ -2,16 +2,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <h2>My Shopping Cart</h2>
-                <asp:GridView ID="GV_Cart" runat="server" AutoGenerateColumns="False" DataKeyNames="ProductID" CssClass="table-bordered table">
+                <asp:GridView ID="GV_Cart" runat="server" AutoGenerateColumns="False" DataKeyNames="CardID" CssClass="table-bordered table">
                     <Columns>
                         <asp:BoundField DataField="CardID" HeaderText="ID" />
                         <asp:BoundField DataField="CardName" HeaderText="Card Name" />
                         <asp:BoundField DataField="CardPrice" HeaderText="Price" />
-                        <asp:BoundField DataField="CardDescription" HeaderText="Description" />
+                        <asp:BoundField DataField="CardDesc" HeaderText="Description" />
                     </Columns>
                 </asp:GridView>
                 <asp:Label ID="Lbl_Error" runat="server" Text="Error"></asp:Label><br />

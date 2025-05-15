@@ -116,6 +116,11 @@
     <Compile Include="Controllers\CartsController.cs" />
     <Compile Include="Controllers\TransactionDetailController.cs" />
     <Compile Include="Controllers\TransactionHeaderController.cs" />
+    <Compile Include="Dataset\TransactionDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransactionDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Factories\CartsFactory.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Database\DatabaseSingleton.cs" />
@@ -166,6 +171,12 @@
       <DependentUpon>LordCardShopModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\TransactionCrystalReport.cs" />
+    <Compile Include="Report\TransactionCrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransactionCrystalReport.rpt</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\CardsRepository.cs" />
     <Compile Include="Repositories\CartsRepository.cs" />
     <Compile Include="Repositories\TransactionDetailRepository.cs" />
@@ -287,6 +298,17 @@
       <DependentUpon>LordCardShopModel.edmx</DependentUpon>
     </Content>
     <Content Include="Master\Navbar.Master" />
+    <Content Include="Dataset\TransactionDataSet.xsc">
+      <DependentUpon>TransactionDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Dataset\TransactionDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TransactionDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Dataset\TransactionDataSet.xss">
+      <DependentUpon>TransactionDataSet.xsd</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -298,6 +320,12 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Report\TransactionCrystalReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TransactionCrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

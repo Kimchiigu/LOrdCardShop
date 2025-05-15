@@ -12,7 +12,7 @@ namespace LOrdCardShop.Views.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            TransactionCrystalReport report = new TransactionCrystalReport();
+            CrystalReportTransaction report = new CrystalReportTransaction();
             CrystalReportViewer1.ReportSource = report;
         }
     }

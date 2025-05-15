@@ -329,6 +329,8 @@ namespace LOrdCardShop.Dataset {
             
             private global::System.Data.DataColumn columntransaction_status;
             
+            private global::System.Data.DataColumn columngrand_total;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public transaction_headerDataTable() {
@@ -396,6 +398,14 @@ namespace LOrdCardShop.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn grand_totalColumn {
+                get {
+                    return this.columngrand_total;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -431,13 +441,14 @@ namespace LOrdCardShop.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public transaction_headerRow Addtransaction_headerRow(string transaction_id, string transaction_date, string customer_id, string transaction_status) {
+            public transaction_headerRow Addtransaction_headerRow(string transaction_id, string transaction_date, string customer_id, string transaction_status, string grand_total) {
                 transaction_headerRow rowtransaction_headerRow = ((transaction_headerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         transaction_id,
                         transaction_date,
                         customer_id,
-                        transaction_status};
+                        transaction_status,
+                        grand_total};
                 rowtransaction_headerRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtransaction_headerRow);
                 return rowtransaction_headerRow;
@@ -464,6 +475,7 @@ namespace LOrdCardShop.Dataset {
                 this.columntransaction_date = base.Columns["transaction_date"];
                 this.columncustomer_id = base.Columns["customer_id"];
                 this.columntransaction_status = base.Columns["transaction_status"];
+                this.columngrand_total = base.Columns["grand_total"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -477,6 +489,8 @@ namespace LOrdCardShop.Dataset {
                 base.Columns.Add(this.columncustomer_id);
                 this.columntransaction_status = new global::System.Data.DataColumn("transaction_status", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntransaction_status);
+                this.columngrand_total = new global::System.Data.DataColumn("grand_total", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columngrand_total);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -616,6 +630,10 @@ namespace LOrdCardShop.Dataset {
             
             private global::System.Data.DataColumn columnquantity;
             
+            private global::System.Data.DataColumn columnsubtotal;
+            
+            private global::System.Data.DataColumn columnprice;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public transaction_detailDataTable() {
@@ -675,6 +693,22 @@ namespace LOrdCardShop.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn subtotalColumn {
+                get {
+                    return this.columnsubtotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn priceColumn {
+                get {
+                    return this.columnprice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -710,12 +744,14 @@ namespace LOrdCardShop.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public transaction_detailRow Addtransaction_detailRow(transaction_headerRow parenttransaction_headerRowBytransaction_header_transaction_detail, string card_id, string quantity) {
+            public transaction_detailRow Addtransaction_detailRow(transaction_headerRow parenttransaction_headerRowBytransaction_header_transaction_detail, string card_id, string quantity, string subtotal, string price) {
                 transaction_detailRow rowtransaction_detailRow = ((transaction_detailRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         card_id,
-                        quantity};
+                        quantity,
+                        subtotal,
+                        price};
                 if ((parenttransaction_headerRowBytransaction_header_transaction_detail != null)) {
                     columnValuesArray[0] = parenttransaction_headerRowBytransaction_header_transaction_detail[0];
                 }
@@ -744,6 +780,8 @@ namespace LOrdCardShop.Dataset {
                 this.columntransaction_id = base.Columns["transaction_id"];
                 this.columncard_id = base.Columns["card_id"];
                 this.columnquantity = base.Columns["quantity"];
+                this.columnsubtotal = base.Columns["subtotal"];
+                this.columnprice = base.Columns["price"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -755,6 +793,10 @@ namespace LOrdCardShop.Dataset {
                 base.Columns.Add(this.columncard_id);
                 this.columnquantity = new global::System.Data.DataColumn("quantity", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnquantity);
+                this.columnsubtotal = new global::System.Data.DataColumn("subtotal", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsubtotal);
+                this.columnprice = new global::System.Data.DataColumn("price", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprice);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -962,6 +1004,22 @@ namespace LOrdCardShop.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string grand_total {
+                get {
+                    try {
+                        return ((string)(this[this.tabletransaction_header.grand_totalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'grand_total\' in table \'transaction_header\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletransaction_header.grand_totalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool Istransaction_idNull() {
                 return this.IsNull(this.tabletransaction_header.transaction_idColumn);
             }
@@ -1006,6 +1064,18 @@ namespace LOrdCardShop.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Settransaction_statusNull() {
                 this[this.tabletransaction_header.transaction_statusColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isgrand_totalNull() {
+                return this.IsNull(this.tabletransaction_header.grand_totalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setgrand_totalNull() {
+                this[this.tabletransaction_header.grand_totalColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1084,6 +1154,38 @@ namespace LOrdCardShop.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string subtotal {
+                get {
+                    try {
+                        return ((string)(this[this.tabletransaction_detail.subtotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'subtotal\' in table \'transaction_detail\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletransaction_detail.subtotalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string price {
+                get {
+                    try {
+                        return ((string)(this[this.tabletransaction_detail.priceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'price\' in table \'transaction_detail\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletransaction_detail.priceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public transaction_headerRow transaction_headerRow {
                 get {
                     return ((transaction_headerRow)(this.GetParentRow(this.Table.ParentRelations["transaction_header_transaction_detail"])));
@@ -1127,6 +1229,30 @@ namespace LOrdCardShop.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetquantityNull() {
                 this[this.tabletransaction_detail.quantityColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IssubtotalNull() {
+                return this.IsNull(this.tabletransaction_detail.subtotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetsubtotalNull() {
+                this[this.tabletransaction_detail.subtotalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IspriceNull() {
+                return this.IsNull(this.tabletransaction_detail.priceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetpriceNull() {
+                this[this.tabletransaction_detail.priceColumn] = global::System.Convert.DBNull;
             }
         }
         

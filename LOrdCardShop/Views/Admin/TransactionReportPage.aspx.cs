@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LOrdCardShop.Report;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,8 @@ namespace LOrdCardShop.Views.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            TransactionCrystalReport report = new TransactionCrystalReport();
+            CrystalReportViewer1.ReportSource = report;
         }
     }
 }

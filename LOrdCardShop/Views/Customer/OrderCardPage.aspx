@@ -23,5 +23,8 @@
             </asp:TemplateField>
         </Columns>
     </asp:GridView>
+    <br />
+    <asp:Label ID="Lbl_Error" runat="server" Text="" ForeColor="Red"></asp:Label>
+    <br />
 
 </asp:Content>

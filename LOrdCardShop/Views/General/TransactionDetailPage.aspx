@@ -6,8 +6,8 @@
 
     <asp:GridView ID="GV_Details" runat="server" AutoGenerateColumns="False">
         <Columns>
-            <asp:BoundField DataField="CardName" HeaderText="Card Name" />
-            <asp:BoundField DataField="CardPrice" HeaderText="Price" />
+            <asp:BoundField DataField="Card.CardName" HeaderText="Card Name" />
+            <asp:BoundField DataField="Card.CardPrice" HeaderText="Price" />
             <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
             <asp:TemplateField HeaderText="Subtotal">
                 <ItemTemplate>

@@ -17,6 +17,13 @@ namespace LOrdCardShop.Repositories
             return db.Cards.ToList();
         }
 
+        public static List<Card> GetAllCardsByName(string cardName)
+        {
+            return db.Cards
+                .Where(c => c.CardName.Contains(cardName))
+                .ToList();
+        }
+
         public static Card GetCardById(int id)
         {
             return db.Cards.Find(id);

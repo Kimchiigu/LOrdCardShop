@@ -14,6 +14,11 @@ namespace LOrdCardShop.Handlers
             return CardsRepository.GetAllCards();
         }
 
+        public static List<Card> GetAllCardsByName(string cardName)
+        {
+            return CardsRepository.GetAllCardsByName(cardName);
+        }
+
         public static Card GetCardById(int id)
         {
             return CardsRepository.GetCardById(id);

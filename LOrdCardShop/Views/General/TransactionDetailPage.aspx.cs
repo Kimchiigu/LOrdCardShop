@@ -17,7 +17,7 @@ namespace LOrdCardShop.Views.General
             {
                 int transactionId = Convert.ToInt32(Request.QueryString["transactionId"]);
                 TransactionDetail details = TransactionDetailController.GetTransactionDetailByHeaderId(transactionId);
-                GV_Details.DataSource = details;
+                GV_Details.DataSource = new List<TransactionDetail> { details };
                 GV_Details.DataBind();
             }
         }

@@ -66,11 +66,11 @@ namespace LOrdCardShop.Master
 
             if (role == "admin")
             {
-                Response.Redirect($"/Views/Admin/ManageCard.aspx?search={HttpUtility.UrlEncode(searchKeyword)}");
+                Response.Redirect($"~/Views/Admin/ManageCardPage.aspx?search={HttpUtility.UrlEncode(searchKeyword)}");
             }
             else if (role == "customer")
             {
-                Response.Redirect($"/Views/Customer/OrderCard.aspx?search={HttpUtility.UrlEncode(searchKeyword)}");
+                Response.Redirect($"~/Views/Customer/OrderCardPage.aspx?search={HttpUtility.UrlEncode(searchKeyword)}");
             }
         }
     }

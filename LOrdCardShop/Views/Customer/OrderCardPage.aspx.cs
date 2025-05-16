@@ -23,9 +23,30 @@ namespace LOrdCardShop.Views.Customer
 
         private void RefreshGrid()
         {
-            List<Card> cards = CardsController.GetAllCards();
-            GV_Cards.DataSource = cards;
-            GV_Cards.DataBind();
+            string cardName = Request.QueryString["search"];
+            List<Card> cards;
+
+            if (string.IsNullOrEmpty(cardName))
+            {
+                cards = CardsController.GetAllCards();
+            }
+            else
+            {
+                cards = CardsController.GetAllCardsByName(cardName);
+            }
+
+            if (cards != null && cards.Count > 0)
+            {
+                GV_Cards.Visible = true;
+                GV_Cards.DataSource = cards;
+                GV_Cards.DataBind();
+                Lbl_Error.Text = string.Empty;
+            }
+            else
+            {
+                GV_Cards.Visible = false;
+                Lbl_Error.Text = "No Cards Found!";
+            }
         }
 
         protected void GV_Cards_RowCommand(object sender, GridViewCommandEventArgs e)

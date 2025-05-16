@@ -1,4 +1,5 @@
-﻿using LOrdCardShop.Model;
+﻿using LOrdCardShop.Controllers;
+using LOrdCardShop.Model;
 using LOrdCardShop.Repositories;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,17 @@ namespace LOrdCardShop.Views.Admin
 
         protected void RefreshGrid()
         {
-            List<Card> cards = CardsRepository.GetAllCards();
+            string cardName = Request.QueryString["search"];
+            List<Card> cards;
+
+            if (string.IsNullOrEmpty(cardName))
+            {
+                cards = CardsController.GetAllCards();
+            }
+            else
+            {
+                cards = CardsController.GetAllCardsByName(cardName);
+            }
 
             if (cards != null && cards.Count > 0)
             {

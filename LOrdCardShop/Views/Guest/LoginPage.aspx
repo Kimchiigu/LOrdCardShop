@@ -24,7 +24,7 @@
                     <asp:TextBox ID="TB_Login_Password" runat="server" TextMode="Password" CssClass="w-full rounded-lg border border-gray-300 px-4 py-2 transition-colors focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your password"></asp:TextBox>
                 </div>
                 <div class="flex items-center">
-                    <asp:CheckBox ID="CB_RememberMe" runat="server" CssClass="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"/>
+                    <asp:CheckBox ID="CB_RememberMe" runat="server" CssClass=   "h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500"/>
                     <asp:Label ID="Lbl_RememberMe" runat="server" Text="Remember Me" CssClass="ml-2 block text-sm text-gray-700"></asp:Label>
                 </div>
                 <div>

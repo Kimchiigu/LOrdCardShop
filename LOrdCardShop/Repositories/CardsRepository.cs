@@ -36,16 +36,16 @@ namespace LOrdCardShop.Repositories
             db.SaveChanges();
         }
 
-        public static void UpdateCard(Card updatedCard)
+        public static void UpdateCard(int cardId, string cardName, double cardPrice, string cardDesc, string cardType, bool isFoil)
         {
-            Card card = db.Cards.Find(updatedCard.CardID);
+            Card card = db.Cards.Find(cardId);
             if (card!= null)
             {
-                card.CardID = updatedCard.CardID;
-                card.CardPrice = updatedCard.CardPrice;
-                card.CardDesc = updatedCard.CardDesc;
-                card.CardType = updatedCard.CardType;
-                card.isFoil = updatedCard.isFoil;
+                card.CardID = cardId;
+                card.CardPrice = cardPrice;
+                card.CardDesc = cardDesc;
+                card.CardType = cardType;
+                card.isFoil = isFoil;
 
                 db.SaveChanges();
             }

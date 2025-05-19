@@ -30,19 +30,14 @@ namespace LOrdCardShop.Views.General
         protected void Btn_Update_Click(object sender, EventArgs e)
         {
             int userId = Convert.ToInt32(Session["userId"]);
-            User user = new User
-            {
-                UserID = userId,
-                UserName = TB_Username.Text.Trim(),
-                UserEmail = TB_Email.Text.Trim(),
-                UserGender = DDL_Gender.SelectedValue
-            };
-
+            string username = TB_Username.Text.Trim();
+            string email = TB_Email.Text.Trim();
+            string gender = DDL_Gender.SelectedValue;
             string oldPassword = TB_OldPassword.Text;
             string newPassword = TB_NewPassword.Text;
             string confirmPassword = TB_ConfirmPassword.Text;
 
-            string result = UsersController.UpdateProfile(user, oldPassword, newPassword, confirmPassword);
+            string result = UsersController.UpdateProfile(userId, username, email, gender, oldPassword, newPassword, confirmPassword);
 
             if (string.IsNullOrEmpty(result))
             {

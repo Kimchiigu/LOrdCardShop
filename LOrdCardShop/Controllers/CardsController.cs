@@ -45,24 +45,24 @@ namespace LOrdCardShop.Controllers
             return string.Empty;
         }
 
-        public static string UpdateCard(Card updatedCard)
+        public static string UpdateCard(int cardId, string cardName, double cardPrice, string cardDesc, string cardType, bool isFoil)
         {
-            if (!ValidateName(updatedCard.CardName))
+            if (!ValidateName(cardName))
                 return "Name must be 5-50 characters and contain only letters and spaces.";
 
-            if (!ValidatePrice(updatedCard.CardPrice))
+            if (!ValidatePrice(cardPrice))
                 return "Price must be at least 10000.";
 
-            if (!ValidateDescription(updatedCard.CardDesc))
+            if (!ValidateDescription(cardDesc))
                 return "Description must not be empty.";
 
-            if (!ValidateType(updatedCard.CardType))
+            if (!ValidateType(cardType))
                 return "Type must be 'Spell' or 'Monster'.";
 
-            if (!ValidateFoil(updatedCard.isFoil))
+            if (!ValidateFoil(isFoil))
                 return "Foil must be true or false.";
 
-            CardsHandler.UpdateCard(updatedCard);
+            CardsHandler.UpdateCard(cardId, cardName, cardPrice, cardDesc, cardType, isFoil);
             return string.Empty;
         }
 

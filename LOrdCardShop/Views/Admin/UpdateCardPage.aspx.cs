@@ -41,22 +41,12 @@ namespace LOrdCardShop.Views.Admin
 
             int cardId = int.Parse(CardID.Text);
             string cardName = CardNameTxt.Text.Trim();
-            decimal cardPrice = decimal.Parse(CardPriceTxt.Text);
+            double cardPrice = double.Parse(CardPriceTxt.Text);
             string cardDesc = CardDescTxt.Text.Trim();
             string cardType = CardTypeTxt.Text.Trim();
             bool isFoil = IsFoilChk.Checked;
 
-            Card updatedCard = new Card
-            {
-                CardID = cardId,
-                CardName = cardName,
-                CardPrice = (double)cardPrice,
-                CardDesc = cardDesc,
-                CardType = cardType,
-                isFoil = isFoil,
-            };
-
-            string result = CardsController.UpdateCard(updatedCard);
+            string result = CardsController.UpdateCard(cardId, cardName, cardPrice, cardDesc, cardType, isFoil);
 
             if (string.IsNullOrEmpty(result))
             {

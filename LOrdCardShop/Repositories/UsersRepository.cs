@@ -51,28 +51,28 @@ namespace LOrdCardShop.Repositories
             return cart;
         }
 
-        public static void UpdateUserWithoutPassword(User user)
+        public static void UpdateUserWithoutPassword(int userId, string username, string userEmail, string userGender)
         {
-            User oldUser = db.Users.Find(user.UserID);
+            User oldUser = db.Users.Find(userId);
             if (oldUser != null)
             {
-                oldUser.UserName = user.UserName;
-                oldUser.UserEmail = user.UserEmail;
-                oldUser.UserGender = user.UserGender;
+                oldUser.UserName = username;
+                oldUser.UserEmail = userEmail;
+                oldUser.UserGender = userGender;
 
                 db.SaveChanges();
             }
         }
 
-        public static void UpdateUserWithPassword(User user)
+        public static void UpdateUserWithPassword(int userId, string username, string userEmail, string userGender, string newPassword)
         {
-            User oldUser = db.Users.Find(user.UserID);
+            User oldUser = db.Users.Find(userId);
             if (oldUser != null)
             {
-                oldUser.UserName = user.UserName;
-                oldUser.UserEmail = user.UserEmail;
-                oldUser.UserGender = user.UserGender;
-                oldUser.UserPassword = user.UserPassword;
+                oldUser.UserName = username;
+                oldUser.UserEmail = userEmail;
+                oldUser.UserGender = userGender;
+                oldUser.UserPassword = newPassword;
 
                 db.SaveChanges();
             }

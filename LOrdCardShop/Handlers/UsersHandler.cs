@@ -24,14 +24,14 @@ namespace LOrdCardShop.Handlers
             return UsersRepository.GetUserByID(id);
         }
 
-        public static void UpdateUserWithPassword(User user)
+        public static void UpdateUserWithPassword(int userId, string username, string userEmail, string userGender, string newPassword)
         {
-            UsersRepository.UpdateUserWithPassword(user);
+            UsersRepository.UpdateUserWithPassword(userId, username, userEmail, userGender, newPassword);
         }
 
-        public static void UpdateUserWithoutPassword(User user)
+        public static void UpdateUserWithoutPassword(int userId, string username, string userEmail, string userGender)
         {
-            UsersRepository.UpdateUserWithoutPassword(user);
+            UsersRepository.UpdateUserWithoutPassword(userId, username, userEmail, userGender);
         }
     }
 }

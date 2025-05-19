@@ -23,9 +23,9 @@ namespace LOrdCardShop.Handlers
         {
             return CardsRepository.GetCardById(id);
         }
-        public static void UpdateCard(Card updatedCard)
+        public static void UpdateCard(int cardId, string cardName, double cardPrice, string cardDesc, string cardType, bool isFoil)
         {
-            CardsRepository.UpdateCard(updatedCard);
+            CardsRepository.UpdateCard(cardId, cardName, cardPrice, cardDesc, cardType, isFoil);
         }
 
         public static void AddCard(string cardName, double cardPrice, string cardDesc, string cardType, bool isFoil)

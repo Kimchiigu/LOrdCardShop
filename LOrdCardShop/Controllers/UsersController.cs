@@ -30,15 +30,15 @@ namespace LOrdCardShop.Controllers
             HttpContext.Current.Session.Remove("userRole");
         }
 
-        public static string UpdateProfile(User updatedUser, string oldPassword, string newPassword, string confirmPassword)
+        public static string UpdateProfile(int userId, string username, string userEmail, string userGender, string oldPassword, string newPassword, string confirmPassword)
         {
-            if (!ValidateUsername(updatedUser.UserName))
+            if (!ValidateUsername(username))
                 return "Username must be 5-30 letters only (letters and spaces allowed).";
 
-            if (!ValidateEmail(updatedUser.UserEmail))
+            if (!ValidateEmail(userEmail))
                 return "Email must contain '@' and not be empty.";
 
-            if (!ValidateGender(updatedUser.UserGender))
+            if (!ValidateGender(userGender))
                 return "Please select a valid gender.";
 
             if (!string.IsNullOrEmpty(newPassword))
@@ -49,16 +49,15 @@ namespace LOrdCardShop.Controllers
                 if (newPassword != confirmPassword)
                     return "Confirmation password does not match.";
 
-                var existingUser = UsersHandler.GetUserById(updatedUser.UserID);
+                var existingUser = UsersHandler.GetUserById(userId);
                 if (existingUser == null || existingUser.UserPassword != oldPassword)
                     return "Old password is incorrect.";
 
-                updatedUser.UserPassword = newPassword;
-                UsersHandler.UpdateUserWithPassword(updatedUser);
+                UsersHandler.UpdateUserWithPassword(userId, username, userEmail, userGender, newPassword);
             }
             else
             {
-                UsersHandler.UpdateUserWithoutPassword(updatedUser);
+                UsersHandler.UpdateUserWithoutPassword(userId, username, userEmail, userGender);
             }
 
             return string.Empty;

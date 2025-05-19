@@ -12,7 +12,7 @@ namespace LOrdCardShop.Controllers
     {
         public static List<Cart> GetAllCartsByUserId(int userId)
         {
-            return CartsRepository.GetAllCartsByUserId(userId);
+            return CartsHandler.GetAllCartsByUserId(userId);    
         }
 
         public static void DeleteCart(int cartId)

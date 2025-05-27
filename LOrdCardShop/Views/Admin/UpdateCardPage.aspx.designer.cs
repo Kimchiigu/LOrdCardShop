@@ -96,13 +96,13 @@ namespace LOrdCardShop.Views.Admin
         protected global::System.Web.UI.WebControls.Label CardTypeLbl;
 
         /// <summary>
-        /// CardTypeTxt control.
+        /// CardTypeDropdown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CardTypeTxt;
+        protected global::System.Web.UI.WebControls.DropDownList CardTypeDropdown;
 
         /// <summary>
         /// IsFoilLbl control.

@@ -13,6 +13,11 @@ namespace LOrdCardShop.Views.Customer
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userRole"] == null)
+            {
+                Response.Redirect("~/Views/Guest/LoginPage.aspx");
+            }
+
             if (Session["username"] != null)
             {
                 Username = Session["username"].ToString();

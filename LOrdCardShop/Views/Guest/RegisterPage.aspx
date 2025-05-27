@@ -151,7 +151,6 @@
                             ShowGridLines="False"
                             SelectionMode="Day"
                             TitleFormat="MonthYear"
-                            
                             TitleStyle-CssClass="calendar-title"
                             NextPrevStyle-CssClass="calendar-header"
                             DayHeaderStyle-CssClass="calendar-day-header"

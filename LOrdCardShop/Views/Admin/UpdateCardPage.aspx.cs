@@ -13,6 +13,11 @@ namespace LOrdCardShop.Views.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
+            {
+                Response.Redirect("~/Views/Guest/LoginPage.aspx");
+            }
+
             if (!IsPostBack)
             {
                 int cardId;
@@ -25,7 +30,7 @@ namespace LOrdCardShop.Views.Admin
                         CardNameTxt.Text = card.CardName;
                         CardPriceTxt.Text = card.CardPrice.ToString();
                         CardDescTxt.Text = card.CardDesc;
-                        CardTypeTxt.Text = card.CardType;
+                        CardTypeDropdown.Text = card.CardType;
                         IsFoilChk.Checked = card.isFoil;
                     }
                     else
@@ -43,7 +48,7 @@ namespace LOrdCardShop.Views.Admin
             string cardName = CardNameTxt.Text.Trim();
             double cardPrice = double.Parse(CardPriceTxt.Text);
             string cardDesc = CardDescTxt.Text.Trim();
-            string cardType = CardTypeTxt.Text.Trim();
+            string cardType = CardTypeDropdown.SelectedValue;
             bool isFoil = IsFoilChk.Checked;
 
             string result = CardsController.UpdateCard(cardId, cardName, cardPrice, cardDesc, cardType, isFoil);
@@ -52,6 +57,9 @@ namespace LOrdCardShop.Views.Admin
             {
                 lblError.ForeColor = System.Drawing.Color.Green;
                 lblError.Text = "Card updated successfully.";
+
+                string script = "setTimeout(function() { window.location.href = '/Views/Admin/ManageCardPage.aspx'; }, 3000);";
+                ClientScript.RegisterStartupScript(this.GetType(), "RedirectAfterUpdate", script, true);
             }
             else
             {

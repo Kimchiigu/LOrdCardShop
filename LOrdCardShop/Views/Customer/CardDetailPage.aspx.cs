@@ -12,7 +12,11 @@ namespace LOrdCardShop.Views.Customer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsCustomer()) Response.Redirect("~/Views/Guest/Login.aspx");
+            if (Session["userRole"] == null || Session["userRole"].ToString() != "customer")
+            {
+                Response.Redirect("~/Views/Guest/LoginPage.aspx");
+            }
+            //if (!IsCustomer()) Response.Redirect("~/Views/Guest/Login.aspx");
 
             if (!IsPostBack)
             {

@@ -16,7 +16,10 @@ namespace LOrdCardShop.Views.General
         {
             if (!IsPostBack)
             {
-                if (Session["userId"] == null) Response.Redirect("~/Views/Guest/LoginPage.aspx");
+                if (Session["userRole"] == null)
+                {
+                    Response.Redirect("~/Views/Guest/LoginPage.aspx");
+                }
 
                 int userId = Convert.ToInt32(Session["userId"]);
                 var user = UsersController.GetUserById(userId);

@@ -9,9 +9,9 @@ namespace LOrdCardShop.Handlers
 {
     public class TransactionDetailHandler
     {
-        public static TransactionDetail GetTransactionDetailByHeaderId(int transactionHeaderId)
+        public static List<TransactionDetail> GetTransactionDetailsByHeaderId(int transactionHeaderId)
         {
-            return TransactionDetailRepository.GetTransactionDetailByHeaderId(transactionHeaderId);
+            return TransactionDetailRepository.GetTransactionDetailsByHeaderId(transactionHeaderId);
         }
 
         public static void CreateTransactionDetail(int transactionId, int cardId, int quantity)

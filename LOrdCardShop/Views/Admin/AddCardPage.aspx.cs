@@ -12,7 +12,15 @@ namespace LOrdCardShop.Views.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
+            {
+                Response.Redirect("~/Views/Guest/LoginPage.aspx");
+            }
 
+            if (!IsPostBack)
+            {
+                Lbl_Error.Visible = false;
+            }
         }
 
         protected void Btn_Insert_Click(object sender, EventArgs e)
@@ -24,6 +32,8 @@ namespace LOrdCardShop.Views.Admin
             bool isFoil = CB_AddCard_Foil.Checked;
 
             string result = CardsController.AddCard(cardName, cardPrice, cardDesc, cardType, isFoil);
+
+            Lbl_Error.Visible = true;
 
             if (string.IsNullOrEmpty(result))
             {

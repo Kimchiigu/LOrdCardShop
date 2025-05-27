@@ -14,6 +14,11 @@ namespace LOrdCardShop.Views.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
+            {
+                Response.Redirect("~/Views/Guest/LoginPage.aspx");
+            }
+
             if (!IsPostBack)
             {
                 RefreshGrid();

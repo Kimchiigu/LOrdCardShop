@@ -16,7 +16,7 @@ namespace LOrdCardShop.Views.Admin
         {
             if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
             {
-                Response.Redirect("~/Views/General/HomePage.aspx");
+                Response.Redirect("~/Views/Guest/LoginPage.aspx");
             }
 
             if (!IsPostBack)

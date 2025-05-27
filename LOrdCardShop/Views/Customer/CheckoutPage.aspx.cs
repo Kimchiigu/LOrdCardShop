@@ -15,6 +15,10 @@ namespace LOrdCardShop.Views.Customer
         public double TotalPrice = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userRole"] == null || Session["userRole"].ToString() != "customer")
+            {
+                Response.Redirect("~/Views/Guest/LoginPage.aspx");
+            }
             if (!IsPostBack)
             {
                 int userId = Convert.ToInt32(Session["UserId"]);

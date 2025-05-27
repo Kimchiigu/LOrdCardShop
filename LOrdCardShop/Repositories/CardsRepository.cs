@@ -42,6 +42,7 @@ namespace LOrdCardShop.Repositories
             if (card!= null)
             {
                 card.CardID = cardId;
+                card.CardName = cardName;
                 card.CardPrice = cardPrice;
                 card.CardDesc = cardDesc;
                 card.CardType = cardType;

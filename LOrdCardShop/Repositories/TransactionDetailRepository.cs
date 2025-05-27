@@ -12,9 +12,11 @@ namespace LOrdCardShop.Repositories
     {
         private static LordCardShopDatabaseEntities db = DatabaseSingleton.GetInstance();
 
-        public static TransactionDetail GetTransactionDetailByHeaderId(int headerId)
+        public static List<TransactionDetail> GetTransactionDetailsByHeaderId(int headerId)
         {
-            return db.TransactionDetails.ToList().Where(td => td.TransactionID == headerId).FirstOrDefault();
+            return db.TransactionDetails
+                     .Where(td => td.TransactionID == headerId)
+                     .ToList();
         }
 
         public static void CreateTransactionDetail(int transactionId, int cardId, int quantity)

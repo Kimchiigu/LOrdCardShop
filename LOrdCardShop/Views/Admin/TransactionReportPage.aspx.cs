@@ -15,6 +15,11 @@ namespace LOrdCardShop.Views.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userRole"] == null || Session["userRole"].ToString() != "admin")
+            {
+                Response.Redirect("~/Views/Guest/LoginPage.aspx");
+            }
+
             CrystalReportTransaction report = new CrystalReportTransaction();
             CrystalReportViewer1.ReportSource = report;
             TransactionDataSet data = GetDataSource(TransactionHeaderController.GetAllTransactionHeaders());

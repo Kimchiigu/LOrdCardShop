@@ -14,9 +14,9 @@ namespace LOrdCardShop.Controllers
             TransactionDetailHandler.CreateTransactionDetail(transactionId, cardId, quantity);
         }
 
-        public static TransactionDetail GetTransactionDetailByHeaderId(int transactionHeaderId)
+        public static List<TransactionDetail> GetTransactionDetailsByHeaderId(int transactionHeaderId)
         {
-            return TransactionDetailHandler.GetTransactionDetailByHeaderId(transactionHeaderId);
+            return TransactionDetailHandler.GetTransactionDetailsByHeaderId(transactionHeaderId);
         }
     }
 }

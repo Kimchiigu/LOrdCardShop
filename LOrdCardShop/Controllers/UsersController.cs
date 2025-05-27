@@ -63,7 +63,6 @@ namespace LOrdCardShop.Controllers
             return string.Empty;
         }
 
-
         public static string ValidateLogin(string username, string password, bool rememberMe)
         {
             if (!ValidateUsername(username))
@@ -202,6 +201,11 @@ namespace LOrdCardShop.Controllers
             }
 
             return false;
+        }
+
+        public static string GetUsernameById(int id)
+        {
+            return UsersHandler.GetUsernameById(id);
         }
 
         public static User GetUserById(int id)

@@ -29,7 +29,8 @@ namespace LOrdCardShop.Master
 
             if (Session["username"] != null)
             {
-                Username = Session["username"].ToString();
+                int id = Convert.ToInt32(Session["userId"]);
+                Username = UsersController.GetUsernameById(id);
             }
 
 

@@ -20,10 +20,10 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-blue-100 to-indigo-200 px-6 py-12">
-        <div class="w-full max-w-2xl bg-white rounded-xl shadow-xl p-8 text-center">
-            <h1 class="text-3xl font-bold text-gray-800 mb-4">Welcome Home <%= Username %></h1>
-            <p class="text-gray-600 text-lg">This is the content of the home page.</p>
+    <div class="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-blue-100 to-indigo-200 px-6 py-12">
+        <div class="w-full max-w-2xl rounded-xl bg-white p-8 text-center shadow-xl">
+            <h1 class="mb-4 text-3xl font-bold text-gray-800">Welcome Home <%= Username %></h1>
+            <p class="text-lg text-gray-600">This is the content of the home page.</p>
         </div>
     </div>
 </asp:Content>

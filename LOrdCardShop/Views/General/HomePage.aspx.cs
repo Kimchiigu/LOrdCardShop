@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LOrdCardShop.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,7 +21,8 @@ namespace LOrdCardShop.Views.Customer
 
             if (Session["username"] != null)
             {
-                Username = Session["username"].ToString();
+                int userId = Convert.ToInt32(Session["userId"]);
+                Username = UsersController.GetUsernameById(userId);
             }
         }
     }

@@ -19,6 +19,11 @@ namespace LOrdCardShop.Handlers
             return UsersRepository.ValidateLogin(username, password);
         }
 
+        public static string GetUsernameById(int id)
+        {
+            return UsersRepository.GetUsernameById(id);
+        }
+
         public static User GetUserById(int id)
         {
             return UsersRepository.GetUserByID(id);

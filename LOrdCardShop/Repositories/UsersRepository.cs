@@ -22,6 +22,12 @@ namespace LOrdCardShop.Repositories
             return db.Users.ToList();
         }
 
+        public static string GetUsernameById(int id)
+        {
+            User user = db.Users.Find(id);
+            return user?.UserName;
+        }
+
         public static User GetUserByID(int id)
         {
             return db.Users.Find(id);
